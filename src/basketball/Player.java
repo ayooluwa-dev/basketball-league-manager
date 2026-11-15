@@ -16,7 +16,7 @@ public class Player extends TeamMember { // Inheritance
         return position;
     }
 
-    public int getjerseyNumber() {
+    public int getJerseyNumber() {
         return jerseyNumber;
     }
 }
