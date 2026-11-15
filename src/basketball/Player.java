@@ -9,4 +9,12 @@ public class Player extends TeamMember { // Inheritance
             this.position = position;
             this.jerseyNumber = jerseyNumber;
     }
+
+        public Position getPosition() {
+        return position;
+        }
+        public int getjerseyNumber () {
+        return jerseyNumber;
+        }
+    }
 }
