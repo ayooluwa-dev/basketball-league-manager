@@ -10,11 +10,12 @@ public class Team {
     public Team(String name) {
         this.name = name;
     }
-
+    
     public String getName() {
         return name;
-        public void addPlayer(Player player) {
-        players.add(player);
     }
+
+    public void addPlayer(Player player) {
+        players.add(player);
     }
 }
