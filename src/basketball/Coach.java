@@ -9,4 +9,8 @@ public class Coach extends TeamMember { // Inheritance
         super(name, dateOfBirth); // super()
         this.yearsOfExperience = yearsOfExperience;
     }
+
+    public int getYearsOfExperience() {
+        return yearsOfExperience;
+    }
 }
