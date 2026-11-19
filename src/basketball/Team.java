@@ -13,5 +13,8 @@ public class Team {
 
     public String getName() {
         return name;
+        public void addPlayer(Player player) {
+        players.add(player);
+    }
     }
 }
