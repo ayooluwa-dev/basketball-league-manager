@@ -22,4 +22,10 @@ public class Team {
         }
         players.add(player);
     }
+
+    public void addPlayers(Player... newPlayers) throws RosterFullException { // Varargs
+        for (Player player : newPlayers) {
+            addPlayer(player);
+        }
+    }
 }
