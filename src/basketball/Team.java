@@ -20,10 +20,16 @@ public class Team {
         if (players.size() >= MAX_PLAYERS) {
             throw new RosterFullException(name + " already has " + MAX_PLAYERS + " players");
         }
+        for (Player p : players) {
+            if (p.getJerseyNumber() == player.getJerseyNumber()) {
+                throw new DuplicateJerseyException( // Unchecked exception
+                        "Jersey #" + player.getJerseyNumber() + " is already worn by " + p.getName());
+            }
+        }
         players.add(player);
     }
 
-    public void addPlayers(Player... newPlayers) throws RosterFullException { // Varargs
+        public void addPlayers(Player... newPlayers) throws RosterFullException { // Varargs
         for (Player player : newPlayers) {
             addPlayer(player);
         }
