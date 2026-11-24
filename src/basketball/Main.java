@@ -19,6 +19,16 @@ public class Main {
             System.out.println("Could not add player: " + e.getMessage());
         }
 
+        // Test a duplicate jersey number
+        try {
+            Player dup = new Player("Duplicate Test", LocalDate.of(2001, 6, 1), Position.POINT_GUARD, 13);
+            bucks.addPlayer(dup);
+        } catch (DuplicateJerseyException e) {
+            System.out.println("Could not add player: " + e.getMessage());
+        } catch (RosterFullException e) {
+            System.out.println("Could not add player: " + e.getMessage());
+        }
+
         // Fill the roster past 15 to test the exception
         try {
             for (int i = 5; i <= 16; i++) {
