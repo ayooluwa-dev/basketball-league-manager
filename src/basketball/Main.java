@@ -8,18 +8,22 @@ public class Main {
 
         Team bucks = new Team("Milwaukee Bucks");
         Player p1 = new Player("Ayooluwa Olaoluwa Owolabi", LocalDate.of(2002, 11, 13), Position.POINT_GUARD, 13);
+        Player p2 = new Player("Samuel Otowo", LocalDate.of(2000, 3, 9), Position.SHOOTING_GUARD, 3);
+        Player p3 = new Player("Samuel Olutekunbi", LocalDate.of(1999, 7, 21), Position.SMALL_FORWARD, 4);
+        Player p4 = new Player("Gregory Osubor", LocalDate.of(2001, 1, 30), Position.CENTER, 5);
 
         try {
-            bucks.addPlayer(p1);
-            System.out.println(p1.getName() + " joined " + bucks.getName());
+            bucks.addPlayers(p1, p2, p3, p4); // Varargs: four players in one call
+            System.out.println("4 players joined " + bucks.getName());
         } catch (RosterFullException e) {
             System.out.println("Could not add player: " + e.getMessage());
         }
+
         // Fill the roster past 15 to test the exception
         try {
-            for (int i = 2; i <= 16; i++) {
+            for (int i = 5; i <= 16; i++) {
                 var player = new Player("Player " + i, LocalDate.of(2000, 1, 1), Position.CENTER, i); // LVTI
-                bucks.addPlayers(player); // Varargs
+                bucks.addPlayer(player);
                 System.out.println(player.getName() + " joined " + bucks.getName());
             }
         } catch (RosterFullException e) {
