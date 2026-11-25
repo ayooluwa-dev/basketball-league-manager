@@ -19,4 +19,9 @@ public class Player extends TeamMember { // Inheritance
     public int getJerseyNumber() {
         return jerseyNumber;
     }
+
+    @Override
+    public String describe() { // Overriding
+        return super.describe() + ", #" + jerseyNumber + " " + position; // super.
+    }
 }
