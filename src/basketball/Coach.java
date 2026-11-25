@@ -10,6 +10,10 @@ public class Coach extends TeamMember { // Inheritance
         this.yearsOfExperience = yearsOfExperience;
     }
 
+    public Coach(String name, LocalDate dateOfBirth) { // Overloading
+        this(name, dateOfBirth, 0); // this()
+    }
+
     public int getYearsOfExperience() {
         return yearsOfExperience;
     }
