@@ -3,8 +3,8 @@ package basketball;
 import java.time.LocalDate;
 import java.time.Period;
 
-public abstract class TeamMember { // Class
-    private String name;           // Encapsulation
+public abstract class TeamMember implements Describable { // Class
+    private String name; // Encapsulation
     private LocalDate dateOfBirth; // Date API
 
     public TeamMember(String name, LocalDate dateOfBirth) {
@@ -22,5 +22,10 @@ public abstract class TeamMember { // Class
 
     public int getAge() { // Date API
         return Period.between(dateOfBirth, LocalDate.now()).getYears();
+    }
+
+    @Override
+    public String describe() {
+        return getName() + ", age " + getAge();
     }
 }
