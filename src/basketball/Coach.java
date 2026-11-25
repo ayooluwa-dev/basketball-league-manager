@@ -17,4 +17,9 @@ public class Coach extends TeamMember { // Inheritance
     public int getYearsOfExperience() {
         return yearsOfExperience;
     }
+
+    @Override
+    public String describe() { // Overriding
+        return super.describe() + ", coach with " + yearsOfExperience + " years' experience"; // super.
+    }
 }
