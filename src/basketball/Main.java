@@ -39,5 +39,8 @@ public class Main {
         } catch (RosterFullException e) {
             System.out.println("Could not add player: " + e.getMessage());
         }
+
+        System.out.println();
+        System.out.println(bucks.getRosterText());
     }
 }

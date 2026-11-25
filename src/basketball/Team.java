@@ -29,9 +29,20 @@ public class Team {
         players.add(player);
     }
 
-        public void addPlayers(Player... newPlayers) throws RosterFullException { // Varargs
+    public void addPlayers(Player... newPlayers) throws RosterFullException { // Varargs
         for (Player player : newPlayers) {
             addPlayer(player);
         }
+    }
+
+    public String getRosterText() { // StringBuilder
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(" roster:\n");
+        for (Player p : players) {
+            sb.append(" #").append(p.getJerseyNumber())
+                    .append(" ").append(p.getName())
+                    .append(" (").append(p.getPosition()).append(")\n");
+        }
+        return sb.toString();
     }
 }
