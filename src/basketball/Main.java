@@ -1,6 +1,7 @@
 package basketball;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,7 +33,8 @@ public class Main {
         // Fill the roster past 15 to test the exception
         try {
             for (int i = 5; i <= 16; i++) {
-                var player = new Player("Player " + i, LocalDate.of(2000, 1, 1), Position.values()[i % Position.values().length], i + 50); // LVTI
+                var player = new Player("Player " + i, LocalDate.of(2000, 1, 1),
+                        Position.values()[i % Position.values().length], i + 50); // LVTI
                 bucks.addPlayer(player);
                 System.out.println(player.getName() + " joined " + bucks.getName());
             }
@@ -42,5 +44,14 @@ public class Main {
 
         System.out.println();
         System.out.println(bucks.getRosterText());
+
+        // Polymorphism: one list, two kinds of TeamMember
+        Coach coach = new Coach("Tunde Adeyemi", LocalDate.of(1975, 4, 2), 18);
+        List<TeamMember> people = List.of(p1, coach);
+        System.out.println(Describable.header("Team cards")); // Static interface method
+        for (TeamMember m : people) {
+            m.printCard(); // Polymorphism
+        }
     }
+
 }
