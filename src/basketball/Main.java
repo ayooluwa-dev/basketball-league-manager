@@ -32,7 +32,7 @@ public class Main {
         // Fill the roster past 15 to test the exception
         try {
             for (int i = 5; i <= 16; i++) {
-                var player = new Player("Player " + i, LocalDate.of(2000, 1, 1), Position.CENTER, i + 50); // LVTI
+                var player = new Player("Player " + i, LocalDate.of(2000, 1, 1), Position.values()[i % Position.values().length], i + 50); // LVTI
                 bucks.addPlayer(player);
                 System.out.println(player.getName() + " joined " + bucks.getName());
             }
