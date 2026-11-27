@@ -77,5 +77,26 @@ public class Main {
         System.out.println("Guards:");
         guards.stream().map(Player::getName).forEach(System.out::println); // Method references
         System.out.println("Players with a jersey above " + minJersey + ": " + highNumbers.size());
+
+        // Switch and pattern matching
+        System.out.println();
+        for (TeamMember m : people) {
+            System.out.println(role(m));
+        }
+    }
+
+    static String role(TeamMember m) { // Pattern matching
+        return switch (m) {
+            case Player p -> p.getName() + " is a " + positionGroup(p.getPosition());
+            case Coach c -> c.getName() + " is the coach";
+        };
+    }
+
+    static String positionGroup(Position pos) { // Switch expression
+        return switch (pos) {
+            case POINT_GUARD, SHOOTING_GUARD -> "guard";
+            case SMALL_FORWARD, POWER_FORWARD -> "forward";
+            case CENTER -> "centre";
+        };
     }
 }
