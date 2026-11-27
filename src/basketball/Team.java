@@ -2,6 +2,7 @@ package basketball;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Team {
     private String name;
@@ -44,5 +45,15 @@ public class Team {
                     .append(" (").append(p.getPosition()).append(")\n");
         }
         return sb.toString();
+    }
+
+    public List<Player> filterPlayers(Predicate<Player> condition) { // Lambdas (Predicate)
+        List<Player> result = new ArrayList<>();
+        for (Player p : players) {
+            if (condition.test(p)) {
+                result.add(p);
+            }
+        }
+        return result;
     }
 }
