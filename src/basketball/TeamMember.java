@@ -3,7 +3,7 @@ package basketball;
 import java.time.LocalDate;
 import java.time.Period;
 
-public abstract class TeamMember implements Describable { // Class
+public abstract sealed class TeamMember implements Describable permits Player, Coach { // Sealed class
     private String name; // Encapsulation
     private LocalDate dateOfBirth; // Date API
 

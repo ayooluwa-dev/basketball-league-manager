@@ -2,7 +2,7 @@ package basketball;
 
 import java.time.LocalDate;
 
-public class Player extends TeamMember { // Inheritance
+public final class Player extends TeamMember { // Inheritance
     private Position position;
     private int jerseyNumber;
 
