@@ -2,6 +2,7 @@ package basketball;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -58,5 +59,13 @@ public class Main {
         System.out.println();
         System.out.println(game); // Record: toString() written by Java
         System.out.println("Winner: " + game.winner());
+
+        // Custom immutable type and defensive copying
+        List<GameResult> games = new ArrayList<>();
+        games.add(game);
+        Season season = new Season("2026-27", games);
+        games.add(new GameResult("Boston Celtics", "Milwaukee Bucks", 99, 101, LocalDate.of(2026, 11, 22)));
+        System.out.println("Games in original list: " + games.size());
+        System.out.println("Games in season " + season.getName() + ": " + season.getResults().size()); // Defensive copying
     }
 }
