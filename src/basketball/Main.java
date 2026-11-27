@@ -52,6 +52,11 @@ public class Main {
         for (TeamMember m : people) {
             m.printCard(); // Polymorphism
         }
-    }
 
+        // Record
+        GameResult game = new GameResult("Milwaukee Bucks", "Chicago Bulls", 112, 104, LocalDate.of(2026, 11, 27));
+        System.out.println();
+        System.out.println(game); // Record: toString() written by Java
+        System.out.println("Winner: " + game.winner());
+    }
 }
