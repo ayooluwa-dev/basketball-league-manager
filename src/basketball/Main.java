@@ -67,5 +67,15 @@ public class Main {
         games.add(new GameResult("Boston Celtics", "Milwaukee Bucks", 99, 101, LocalDate.of(2026, 11, 22)));
         System.out.println("Games in original list: " + games.size());
         System.out.println("Games in season " + season.getName() + ": " + season.getResults().size()); // Defensive copying
+
+        // Lambdas, effectively final and method references
+        int minJersey = 20; // Effectively final: never changed after this line
+        List<Player> guards = bucks.filterPlayers(p -> p.getPosition() == Position.POINT_GUARD
+                || p.getPosition() == Position.SHOOTING_GUARD); // Lambda (Predicate)
+        List<Player> highNumbers = bucks.filterPlayers(p -> p.getJerseyNumber() > minJersey); // Effectively final
+        System.out.println();
+        System.out.println("Guards:");
+        guards.stream().map(Player::getName).forEach(System.out::println); // Method references
+        System.out.println("Players with a jersey above " + minJersey + ": " + highNumbers.size());
     }
 }
